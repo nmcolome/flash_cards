@@ -52,4 +52,11 @@ class RoundTest < Minitest::Test
 
     assert_equal 1, @round.number_correct
   end
+
+  def test_changes_card_after_each_guess
+    assert_equal @card_1, @round.current_card
+
+    new_turn = @round.take_turn("Juneau")
+    assert_equal @card_2, @round.current_card
+  end
 end
