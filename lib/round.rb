@@ -5,17 +5,15 @@ class Round
     @deck = deck
     @turns = []
     @number_correct = 0
-    @count = 0
   end
 
   def current_card
-    @deck.cards[@count]
+    @deck.cards[@turns.count]
   end
 
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns.unshift(new_turn)
-    @count += 1
     new_turn
   end
 
