@@ -56,8 +56,11 @@ class RoundTest < Minitest::Test
   def test_changes_card_after_each_guess
     assert_equal @card_1, @round.current_card
 
-    new_turn = @round.take_turn("Juneau")
+    turn_one = @round.take_turn("Juneau")
     assert_equal @card_2, @round.current_card
+
+    turn_two = @round.take_turn("Venus")
+    assert_equal @card_3, @round.current_card
   end
 
   def test_it_returns_the_number_of_correct_guesses_by_category
@@ -66,5 +69,20 @@ class RoundTest < Minitest::Test
 
     assert_equal 1, @round.number_correct_by_category(:Geography)
     assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
+
+  def test_it_returns_the_percentage_of_number_of_correct_guesses
+    turn_one = @round.take_turn("Juneau")
+    turn_two = @round.take_turn("Venus")
+
+    assert_equal 50.0, @round.percent_correct
+  end
+
+  def test_it_returns_the_percentage_of_number_of_correct_guesses_by_category
+    turn_one = @round.take_turn("Juneau")
+    turn_two = @round.take_turn("Venus")
+
+    assert_equal 100.0, @round.percent_correct_by_category(:Geography)
+    assert_equal 0.0, @round.percent_correct_by_category(:STEM)
   end
 end
