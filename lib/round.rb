@@ -20,10 +20,10 @@ class Round
   end
 
   def number_correct
-    if @turns[0] && @turns[0].correct?
-      @number_correct += 1
-    else
-      @number_correct
-    end
+    @turns.count { |turn| turn.correct? }
+  end
+
+  def number_correct_by_category(category_name)
+    @turns.count { |turn| turn.correct? && turn.card.category == category_name}
   end
 end

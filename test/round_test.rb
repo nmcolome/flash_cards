@@ -59,4 +59,12 @@ class RoundTest < Minitest::Test
     new_turn = @round.take_turn("Juneau")
     assert_equal @card_2, @round.current_card
   end
+
+  def test_it_returns_the_number_of_correct_guesses_by_category
+    turn_one = @round.take_turn("Juneau")
+    turn_two = @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct_by_category(:Geography)
+    assert_equal 0, @round.number_correct_by_category(:STEM)
+  end
 end
