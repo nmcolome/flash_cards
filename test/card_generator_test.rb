@@ -22,5 +22,8 @@ class CardGeneratorTest < Minitest::Test
     assert_equal "What is 5 + 5?", cards[0].question
     assert_equal "10", cards[0].answer
     assert_equal :STEM, cards[0].category
+    assert_equal "What cardboard cutout lives at Turing?", cards[3].question
+    assert_equal "justin bieber", cards[3].answer
+    assert_equal :"Pop Culture", cards[3].category
   end
 end
