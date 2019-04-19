@@ -16,8 +16,8 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_has_a_guess
-    assert_equal "Juneau", @turn.guess
-    assert_equal "Washington", @other_answer.guess
+    assert_equal "juneau", @turn.guess
+    assert_equal "washington", @other_answer.guess
   end
 
   def test_it_has_a_card

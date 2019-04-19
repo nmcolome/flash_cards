@@ -8,7 +8,7 @@ class CardGenerator
   def cards
     @filename.map do |line|
       elements = line.split(",")
-      Card.new(elements[0], elements[1], elements[2].chomp.to_sym)
+      Card.new(elements[0], elements[1], elements[2].chomp)
     end
   end
 end

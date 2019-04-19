@@ -3,7 +3,7 @@ class Card
 
   def initialize(question, answer, category)
     @question = question
-    @answer = answer
-    @category = category
+    @answer = answer.downcase
+    @category = category.to_sym
   end
 end
